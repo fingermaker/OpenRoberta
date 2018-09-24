@@ -33,3 +33,25 @@
 #ifndef M_INFINITY
 #define M_INFINITY 0x7f800000
 #endif
+
+inline int abs(int i) {
+	return i<0 ? -i : i;
+}
+
+inline bool isWhole(double d) {
+	return d == floor(d);
+}
+
+inline bool isPrime(double d) {
+	if (!isWhole(d)) {
+		return false;
+	}
+	int n = (int) d;
+	if ( n < 2 ) { return false; }
+	if ( n === 2 ) { return true; }
+	if ( n % 2 === 0 ) { return false; }
+	for ( int i = 3, int s = (int)(sqrt( d )+1); i <= s; i += 2 ) {
+		if ( n % i === 0 ) { return false; }
+	}
+	return true;
+}
